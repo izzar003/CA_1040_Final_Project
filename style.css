@@ -1,0 +1,317 @@
+/* --- Global styles --- */
+:root {
+    --bg-main: #FAFAFA;
+    --bg-white: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --text-muted: #666666;
+    --brand-green: #2E7D32;
+    --brand-pink: #D81B60;
+    --border-color: #E0E0E0;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    font-family: var(--font-family);
+    line-height: 1.5;
+}
+
+/* --- Navigation frame banner --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-white);
+    padding: 1.2rem 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--brand-green);
+}
+
+.navbar nav button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-left: 1.5rem;
+    transition: color 0.2s ease;
+    padding-bottom: 4px;
+}
+
+.navbar nav button:hover, .navbar nav button.active {
+    color: var(--brand-green);
+    border-bottom: 2px solid var(--brand-green);
+}
+
+/* --- Split horizontal desktop  --- */
+.dashboard-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.left-panel {
+    flex: 1;
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.right-panel {
+    flex: 2.5;
+}
+
+/* --- Global wrappers --- */
+.view-wrapper {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.page-heading-block {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.instruction {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* --- Ingredient tokens --- */
+.token-flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.token-btn {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.token-btn:hover {
+    background-color: #ECEFF1;
+}
+
+.token-btn.active {
+    background-color: var(--brand-green);
+    color: var(--bg-white);
+    border-color: var(--brand-green);
+}
+
+/* --- Simulated search spinner --- */
+.results-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--brand-green);
+    border-radius: 50%;
+    animation: renderSpinnerLoop 0.7s linear infinite;
+}
+
+@keyframes renderSpinnerLoop {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Recipe cards --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.recipe-card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 190px;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Heart/ favorite button --- */
+.bookmark-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    transition: all 0.2s ease;
+}
+
+.bookmark-btn:hover {
+    transform: scale(1.1);
+    background-color: #FFFFFF;
+}
+
+.bookmark-btn.active {
+    color: var(--brand-pink);
+}
+
+.card-info {
+    padding: 1.4rem;
+}
+
+.card-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+}
+
+.card-info .time {
+    color: var(--brand-green);
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+}
+
+.card-info .ingredients-list {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.no-results {
+    color: var(--text-muted);
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 0;
+    font-size: 1.1rem;
+}
+
+/* --- Mobile view query breakpoint from side by side to single column --- */
+@media (max-width: 850px) {
+    .dashboard-container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    
+    .navbar nav button {
+        margin: 0 0.8rem;
+    }
+    
+    .view-wrapper {
+        padding: 0 1rem;
+    }
+}
+
+/* --- Floating Overlay Pop-up Modal Properties --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* Force overlay on top */
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: openModalAnim 0.25s ease-out;
+}
+
+@keyframes openModalAnim {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.close-modal-x:hover {
+    color: var(--text-dark);
+}
+
+#modal-steps-list {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
