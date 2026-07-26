@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry Prospects: Finding New Recipes For Your Old Food</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo">Pantry Prospects</div>
+        <nav id="main-nav">
+            <button class="nav-link active" data-target="search-view">Home / Search</button>
+            <button class="nav-link" data-target="library-view">Recipe Library</button>
+            <button class="nav-link" data-target="favorites-view">Favorites</button>
+        </nav>
+    </header>
+
+    <!-- Page 1: Search -->
+    <main id="search-view" class="view-section">
+        <div class="dashboard-container">
+            <!-- Left Side Control Inputs -->
+            <aside class="left-panel">
+                <h2>Your Kitchen Pantry</h2>
+                <p class="instruction">Toggle the food items you want to use up:</p>
+                <div id="token-container" class="token-flex-wrapper">
+                    <!-- JavaScript  clickable checkbox tokens here -->
+                </div>
+            </aside>
+
+            <!-- Right Side Canvas -->
+            <section class="right-panel">
+                <div class="results-header">
+                    <h2>Available Meal Prospects</h2>
+                    <!-- Simulated network spinner wheel -->
+                    <div id="loader" class="spinner" style="display: none;"></div>
+                </div>
+                <div id="recipe-grid" class="cards-grid">
+                    <!-- Filtered match recipe loops here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Page 2: Full Recipe Library -->
+    <main id="library-view" class="view-section" style="display: none;">
+        <div class="view-wrapper">
+            <div class="page-heading-block">
+                <h2>Recipe Library</h2>
+                <p class="instruction">Browse through the complete catalog of recipes:</p>
+            </div>
+            <div id="library-grid" class="cards-grid">
+                <!-- Full database catalog here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Page 3: Favorites -->
+    <main id="favorites-view" class="view-section" style="display: none;">
+        <div class="view-wrapper">
+            <div class="page-heading-block">
+                <h2>Bookmarked Favorites</h2>
+                <p class="instruction">Your saved recipes:</p>
+            </div>
+            <div id="favorites-grid" class="cards-grid">
+                <!-- Saved items appear here -->
+            </div>
+        </div>
+    </main>
+
+         <!-- Recipe Steps Pop-Up Window -->
+    <div id="recipe-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="close-modal-x">&times;</button>
+            <h2 id="modal-title">Recipe Title</h2>
+            <p id="modal-time" style="font-weight: bold; margin-bottom: 1rem; color: #2E7D32;">⏱ 20 mins</p>
+            <h3>Cooking Steps:</h3>
+            <ol id="modal-steps-list">
+                <!-- JavaScript appends  directions  here -->
+            </ol>
+        </div>
+    </div>
+    <script src="recipes.js"></script>
+</body>
+</html>
